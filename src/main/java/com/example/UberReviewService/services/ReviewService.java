@@ -50,8 +50,10 @@ public class ReviewService implements CommandLineRunner {
         }
         //List<Driver> drivers= driverRepository.findAll();
         Optional<Driver> drivers= driverRepository.findById(3L);
-        System.out.println(drivers);
+        System.out.println(drivers.get().getName());
         //reviewRepository.deleteById(2L);
 
+        Optional<Driver> d= driverRepository.hqlFindByIdAndLisence(4L,"AP12x46");
+        System.out.println(d.get().getName());
     }
 }
