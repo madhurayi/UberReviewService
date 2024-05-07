@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 
-@Entity
+@Entity //Entity annotation defines that a class can be mapped to a table
 @Getter
 @Setter
 @NoArgsConstructor

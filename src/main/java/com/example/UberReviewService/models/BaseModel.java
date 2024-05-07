@@ -16,6 +16,7 @@ import java.util.Date;
 public class BaseModel {
 
     @Id //this annotation makes the id property a primary key of our table
+    //@GeneratedValue This annotation is used to specify the primary key generation strategy to use
     @GeneratedValue(strategy = GenerationType.IDENTITY) // identity means auto_increment
     protected Long id;
 
