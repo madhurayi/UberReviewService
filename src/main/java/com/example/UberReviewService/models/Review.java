@@ -2,11 +2,6 @@ package com.example.UberReviewService.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.util.Date;
 
 @Getter
 @Setter
@@ -18,14 +13,15 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Review extends BaseModel{
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
+    Booking booking; // W  e have defined a 1:1 relationship between a booking and review
 
     @Column(nullable = false)
     private String content;
 
     @Column(nullable = false)
     private float rating;
-
-
 
     public String toString(){
         return "Review: "+this.content+" "+this.rating+" "+this.createdAt;

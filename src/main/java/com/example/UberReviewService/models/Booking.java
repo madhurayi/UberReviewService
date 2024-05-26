@@ -13,9 +13,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class Booking extends BaseModel{
 
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
-    Review review; // We have defined a 1:1 relationship between a booking and review
-
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date startTime;
 
@@ -27,9 +24,9 @@ public class Booking extends BaseModel{
 
     private Long totalDistance;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
 }
